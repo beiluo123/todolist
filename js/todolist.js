@@ -80,6 +80,7 @@ $(function () {
         var todoCount = 0 //正在进行的个数
         var doneCount = 0 //已经完成的个数
         // 遍历这个数据
+
         $.each(data, function (i, n) {
             // console.log(n);
             if (n.done) {
@@ -89,8 +90,13 @@ $(function () {
                 $('ol').prepend('<li><input type="checkbox" ><p>' + n.title + '</p><a href="javascript:;" id="' + i + '"></a></li>')
                 todoCount++
             }
+
             $('#todocount').text(todoCount)
             $('#donecount').text(doneCount)
         })
+        if (data.length == 0) {
+            $('#todocount').text(0)
+            $('#donecount').text(0)
+        }
     }
 })
